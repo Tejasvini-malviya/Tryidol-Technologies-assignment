@@ -1,7 +1,7 @@
 import React from "react";
 
 
-import { PopularProducts, Services, Hero, Contact } from "../components";
+import { PopularProducts } from "../components";
 
 const HomePage = () => {
 

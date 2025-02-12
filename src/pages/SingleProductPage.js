@@ -29,17 +29,21 @@ const SingleProductPage = () => {
 
   const { title, price, image, category, description, rating } = product;
 
-  useEffect(() => {
-    fetchSingleProduct(id);
-  }, [id]);
 
   useEffect(() => {
+    fetchSingleProduct(id);
+  }, [id, fetchSingleProduct]);
+
+
+  useEffect(() => {
+    let timeout;
     if (error) {
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         navigate("/");
       }, 3000);
     }
-  }, [error]);
+    return () => clearTimeout(timeout); // Cleanup to prevent memory leaks
+  }, [error, navigate]);
 
   if (loading) {
     return (
@@ -67,15 +71,15 @@ const SingleProductPage = () => {
           </div>
           <div className='product__info'>
             <Button variant='secondary'>
-              <Link to='/products'>back to products</Link>
+              <Link to='/products'>Back to Products</Link>
             </Button>
             <Typography.H2>{title}</Typography.H2>
             <Stars stars={rating} />
             <Typography.P className='info__price'>
-              Price : <span>${price}</span>
+              Price: <span>${price}</span>
             </Typography.P>
             <Typography.P className='info__category'>
-              Category : <span>{category}</span>
+              Category: <span>{category}</span>
             </Typography.P>
             <Typography.P>{description}</Typography.P>
             <AddToCart product={product} />
@@ -98,7 +102,7 @@ const Wrapper = styled.section`
     justify-items: center;
     gap: 2rem;
     ${Screen.lg`
-    grid-template-columns: 1fr 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
     `}
 
     .product__img {
@@ -112,8 +116,8 @@ const Wrapper = styled.section`
       display: grid;
       gap: 1rem;
       ${Screen.lg`
-      grid-column: 2/4;
-    `}
+        grid-column: 2/4;
+      `}
 
       button {
         width: max-content;
