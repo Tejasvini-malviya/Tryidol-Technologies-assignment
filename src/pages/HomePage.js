@@ -8,10 +8,7 @@ const HomePage = () => {
 
   return (
     <main>
-      <Hero />
-      <Services />
       <PopularProducts />
-      <Contact />
     </main>
   );
 };

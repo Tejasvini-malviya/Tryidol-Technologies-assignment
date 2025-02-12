@@ -8,7 +8,7 @@ const Footer = () => {
     <FooterWrapper>
       <Typography.P>
         &copy;{new Date().getFullYear()} by
-        <a href='https://github.com/kamalheydari'> kamal heydari</a>, All rights
+        <a href=''> Tejasvini Malviya</a>, All rights
         reserved
       </Typography.P>
     </FooterWrapper>

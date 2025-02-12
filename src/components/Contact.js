@@ -14,10 +14,6 @@ const Contact = () => {
           no additional charge
         </Typography.P>
       </div>
-      <form className='contact__form' onSubmit={(e) => e.preventDefault()}>
-        <input type='text' placeholder='Enter Email' />
-        <button type='submit'>Subscribe</button>
-      </form>
     </Wrapper>
   );
 };
