@@ -26,7 +26,7 @@ const initialState = {
 
 const ProductsContext = createContext();
 
-const API_ENDPOINT = "https://fakestoreapi.com/products";
+const API_ENDPOINT = "/api/products";
 
 export const ProductsProvider = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState);
